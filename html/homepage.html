@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Modern Content Discovery</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b82f6", // Modern Blue
+                        "background-light": "#f9fafb",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <nav
+        class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <div
+                        class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                        <span class="material-icons-outlined">explore</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight hidden sm:block">Discover</span>
+                </div>
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <span
+                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <span class="material-icons-outlined text-xl">search</span>
+                        </span>
+                        <input
+                            class="block w-full pl-10 pr-3 py-2 border-none bg-slate-100 dark:bg-slate-800 rounded-full text-sm placeholder-slate-500 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-700 transition-all"
+                            placeholder="Search for inspiration..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <button
+                        class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+                        <span class="material-icons-outlined">notifications</span>
+                    </button>
+                    <button
+                        class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                        id="theme-toggle">
+                        <span class="material-icons-outlined dark:hidden">dark_mode</span>
+                        <span class="material-icons-outlined hidden dark:block">light_mode</span>
+                    </button>
+                    <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
+                    <button
+                        class="flex items-center gap-2 p-1 pl-1 pr-3 rounded-full border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow">
+                        <div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                            <img alt="User Profile"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDedH6EW6xzDdmWHskEcwrwD1f7A-DWPc-lumBNFm2k0OyEQ0VwHOZgkvvxxUrMa4zTv5TILOE1p8X09JGqL4J2m9Atzq6cHmV7ls-QfIuBsQVL8vqQnJm-szD02eiY_HkzlUSeax4BHGMn1q-nI59OUuMbjd1ANy6yRS37I9di0Rv7MVlVluvKyjKsk95EO3IP9QnC7I7x4I0bMv9pKEMOVs7_XB4nxA03Cq6T29Q51v_yE-FcUTVu0JN7nJlJ-qQSpOjTYv_dysk" />
+                        </div>
+                        <span class="material-icons-outlined text-slate-500 text-lg">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="relative group h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+                <img alt="Featured collection abstract"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEHm4moZm9WGB9srx7MU1jI5pkyJbgrexdy8tDdyTQofw08hbSsJIyIe7QEYDNRwDUkEGrU_EaeUNFLxYhR4jbjnFVpn7ZQ8PXAyt2kDLVHOLESCuTNPaQbDN0L_kx48arbmS4MVz7A6j6MpxjMxDnZjg_NKSg25re4iXtTfUqDDmD5D6qZUp8JldENNpWL0cXDVt788w85II1ngdDJIKp_eXdxGVKjTg4pEFTfjte2U1QhXal50UuZJIVW-MDLnP4IcAnpKtMN0s" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6 text-white">
+                    <span
+                        class="inline-block px-3 py-1 bg-primary text-xs font-bold uppercase tracking-wider rounded-full mb-3">Trending</span>
+                    <h2 class="text-2xl font-bold mb-2">Digital Artistry</h2>
+                    <p class="text-white/80 text-sm mb-4">Explore the new wave of minimalist 3D designs.</p>
+                    <button
+                        class="bg-white text-slate-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-slate-100 transition-colors">Explore
+                        Now</button>
+                </div>
+            </div>
+            <div class="relative group h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+                <img alt="Tech gadgets collection"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTQvA0ixcyWn_usxQzJghdKwTtc-tM_gk4UItFTpoG-pNEv9t4dd5TPPJQOLOeE-3XHrzQI7vyXD23V5_aFCh918jhHHgx5wyEA6HMxLz670c7GS7B1FkF0fFr4iBh5j2GEAZ3YzMYi6q3uxzjZbHQLqe7KTwyt3VmKfs0D_TGDMCQoSR4YzZkoQCSPZZfvmdihEpcdQse3AOcxZUSMZ2dajWiMSb37-nRgRLRT5JLjxXgBzMB4l8JfcnSNBWDOnsiBOUFoq9ZbL8" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6 text-white">
+                    <span
+                        class="inline-block px-3 py-1 bg-purple-500 text-xs font-bold uppercase tracking-wider rounded-full mb-3">Staff
+                        Pick</span>
+                    <h2 class="text-2xl font-bold mb-2">Future Tech</h2>
+                    <p class="text-white/80 text-sm mb-4">The tools that will redefine how we work in 2024.</p>
+                    <button
+                        class="bg-white text-slate-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-slate-100 transition-colors">Read
+                        More</button>
+                </div>
+            </div>
+            <div class="relative group h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+                <img alt="Home interior collection"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOr-71jvwh_cLMurSre-AxjpT1zDk4ezbi88Y5yi349nAiXvJcOBeYJ7RjELP6jkUH8djGNIF1EXztlHLMUnEn928L8a3cbJR5PqQ_nCnxU0LVP180BUkxBVT0Mm8uxPVsOoB4rw4PEjJHyxxWnnsBQEd08YM70CfPqUYf_w-OVoWUPbYFH2Mp8M38eexw3xzTC_GpIEhslz7MP_jy3ycz4CK5bLasclfhjRN6yGcvgDkH5d6WbnOG07Uefk1k5_NoBfeofDDQuz4" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6 text-white">
+                    <span
+                        class="inline-block px-3 py-1 bg-amber-500 text-xs font-bold uppercase tracking-wider rounded-full mb-3">Exclusive</span>
+                    <h2 class="text-2xl font-bold mb-2">Modern Living</h2>
+                    <p class="text-white/80 text-sm mb-4">Finding peace in beautifully curated interiors.</p>
+                    <button
+                        class="bg-white text-slate-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-slate-100 transition-colors">View
+                        Gallery</button>
+                </div>
+            </div>
+        </section>
+        <section class="mb-10 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar pb-2 sm:pb-0">
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-medium text-sm">All
+                    Content</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors rounded-full font-medium text-sm">Architecture</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors rounded-full font-medium text-sm">UI/UX
+                    Design</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors rounded-full font-medium text-sm">Photography</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors rounded-full font-medium text-sm">Technology</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-colors rounded-full font-medium text-sm">Lifestyle</button>
+            </div>
+            <button
+                class="hidden sm:flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-outlined text-lg">tune</span>
+                Filters
+            </button>
+        </section>
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <script>
+                const gridItems = [
+                    { title: "Glassmorphism UI", category: "Design", img: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400" },
+                    { title: "Brutalist Web", category: "Web", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=400" },
+                    { title: "Abstract Shapes", category: "Art", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=400" },
+                    { title: "The Neon Era", category: "Nightlife", img: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&q=80&w=400" },
+                    { title: "Minimalist Workspace", category: "Office", img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=400" },
+                    { title: "Nordic Interiors", category: "Home", img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=400" },
+                    { title: "Creative Portraits", category: "Photography", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" },
+                    { title: "Sunset Waves", category: "Nature", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=400" }
+                ];
+                document.write(gridItems.map(item => `
+                    <article class="group cursor-pointer">
+                        <div class="relative aspect-[4/5] rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800">
+                            <img src="${item.img}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="${item.title}" />
+                            <button class="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full text-white transition-all opacity-0 group-hover:opacity-100">
+                                <span class="material-icons-outlined text-lg">favorite_border</span>
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-semibold text-slate-800 dark:text-slate-100 group-hover:text-primary transition-colors">${item.title}</h3>
+                                <span class="text-xs font-medium text-slate-500 dark:text-slate-400 py-1 px-2 bg-slate-100 dark:bg-slate-800 rounded-md">${item.category}</span>
+                            </div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">A curated exploration into the depths of modern aesthetic choices and visual storytelling.</p>
+                        </div>
+                    </article>
+                `).join(''));
+            </script>
+        </section>
+        <div class="mt-16 flex flex-col items-center">
+            <button
+                class="px-8 py-3 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-full font-semibold shadow-sm hover:shadow-md transition-all active:scale-95">
+                Load More Content
+            </button>
+        </div>
+    </main>
+    <footer class="mt-20 border-t border-slate-200 dark:border-slate-800 bg-surface-light dark:bg-surface-dark py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+                        <span class="material-icons-outlined text-sm">explore</span>
+                    </div>
+                    <span class="text-lg font-bold">Discover</span>
+                </div>
+                <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Connecting curious minds with extraordinary content. Your daily source of visual and intellectual
+                    inspiration.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-sm uppercase tracking-wider">Explore</h4>
+                <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                    <li><a class="hover:text-primary transition-colors" href="#">Popular Picks</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">New Arrivals</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Categories</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Collections</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-sm uppercase tracking-wider">Company</h4>
+                <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                    <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-sm uppercase tracking-wider">Subscribe</h4>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Stay updated with the latest trends.</p>
+                <div class="flex gap-2">
+                    <input
+                        class="flex-1 px-4 py-2 text-sm bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary"
+                        placeholder="Email address" type="email" />
+                    <button
+                        class="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity">Join</button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+            <p>© 2024 Discover Inc. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="hover:text-slate-600 dark:hover:text-slate-200" href="#">Privacy Policy</a>
+                <a class="hover:text-slate-600 dark:hover:text-slate-200" href="#">Terms of Service</a>
+                <a class="hover:text-slate-600 dark:hover:text-slate-200" href="#">Cookie Settings</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        // Check for saved theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
